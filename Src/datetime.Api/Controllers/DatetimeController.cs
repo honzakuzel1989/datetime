@@ -15,6 +15,12 @@ namespace datetime.Controllers
             _logger = logger;
         }
 
+        [HttpGet]
+        public string Get()
+        {
+            return ";)";
+        }
+
         [HttpGet("Now")]
         public JsonResult GetNow()
         {
