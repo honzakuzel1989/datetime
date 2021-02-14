@@ -8,6 +8,8 @@ namespace datetime.Controllers
     [Route("[controller]")]
     public class DatetimeController : ControllerBase
     {
+        private const string DEFAULT_FORMAT = "dd.mm.yyyy hh:MM:ss";
+
         private readonly ILogger<DatetimeController> _logger;
 
         public DatetimeController(ILogger<DatetimeController> logger)
@@ -24,11 +26,11 @@ namespace datetime.Controllers
         [HttpGet("Now")]
         public JsonResult GetNow()
         {
-            return new JsonResult(DateTime.Now.ToString());
+            return new JsonResult(DateTime.Now);
         }
 
         [HttpGet("NowFormatted")]
-        public JsonResult GetNowFormatted(string format = "dd.mm.yyyy hh:MM:ss")
+        public JsonResult GetNowFormatted(string format = DEFAULT_FORMAT)
         {
             return new JsonResult(DateTime.Now.ToString(format));
         }
